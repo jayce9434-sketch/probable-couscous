@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#10251b" />
+  <title>BUGBREAK: Colony Siege</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div id="app">
+    <canvas id="game" width="1280" height="720" aria-label="BUGBREAK game canvas"></canvas>
+    <div id="vignette"></div><div id="grain"></div><div id="toast"></div>
+
+    <section id="menu" class="screen active">
+      <div class="menu-card glass">
+        <div class="eyebrow">UPDATE 2 · THE FUN ONE 😭</div>
+        <h1><span>BUG</span>BREAK</h1><h2>COLONY SIEGE</h2>
+        <p>Defend a living backyard nest through <b>50 waves</b>. Bite predators, collect gems, mutate your insect, repair the colony, and wreck ten bosses.</p>
+        <div class="bug-select" id="bugSelect"></div>
+        <div class="menu-actions"><button id="playBtn" class="primary">START RUN</button><button id="shopBtn">UPGRADES</button></div>
+        <div class="meta-row"><span>Best <b id="bestWave">0</b>/50</span><span>💎 <b id="menuGems">0</b></span><span class="gift">🎁 Starter gems included</span><button id="resetBtn" class="text-btn">Reset save</button></div>
+      </div>
+      <div class="tip glass">WASD / arrows move · SPACE bite · SHIFT dash · R repair nest · mobile controls included</div>
+    </section>
+
+    <section id="shop" class="screen"><div class="panel glass wide">
+      <div class="panel-head"><div><div class="eyebrow">Cheaper permanent colony upgrades</div><h3>UPGRADES</h3></div><button data-close="shop" class="icon-btn">✕</button></div>
+      <div id="upgradeGrid" class="upgrade-grid"></div><div class="shop-footer">Gems: <b id="shopGems">0</b> · Costs increase gently now 👁️</div>
+    </div></section>
+
+    <section id="levelup" class="screen"><div class="panel glass"><div class="eyebrow">DNA mutation available</div><h3>CHOOSE A MUTATION</h3><div id="cards" class="cards"></div></div></section>
+    <section id="pause" class="screen"><div class="panel glass small"><h3>PAUSED</h3><button id="resumeBtn" class="primary">RESUME</button><button id="quitBtn">QUIT RUN</button></div></section>
+
+    <section id="gameover" class="screen"><div class="panel glass small"><div class="eyebrow">The predators broke through.</div><h3>RUN OVER</h3><div id="runStats" class="run-stats"></div><button id="againBtn" class="primary">RUN IT BACK</button><button id="menuBtn">MAIN MENU</button></div></section>
+    <section id="victory" class="screen"><div class="panel glass small victory"><div class="crown">👑</div><div class="eyebrow">THE COLONY SURVIVED</div><h3>WAVE 50 CLEARED!</h3><p>You beat the entire backyard campaign. The insects have officially claimed the yard 😭🔥</p><div id="victoryStats" class="run-stats"></div><button id="victoryAgainBtn" class="primary">NEW RUN</button><button id="victoryMenuBtn">MAIN MENU</button></div></section>
+
+    <div id="hud" class="hidden">
+      <div class="hud-top">
+        <div class="barbox glass"><span>YOU</span><div class="bar"><i id="hpBar"></i></div><b id="hpText"></b></div>
+        <div class="wave glass"><small>WAVE</small><b><span id="waveText">1</span><em>/50</em></b><span id="enemyCount">0 left</span></div>
+        <div class="barbox glass"><span>NEST</span><div class="bar nest"><i id="nestBar"></i></div><b id="nestText"></b></div>
+      </div>
+      <div class="hud-bottom">
+        <div class="currency glass"><span>🍞 <b id="crumbsText">0</b></span><span>💎 <b id="gemsText">0</b></span><span>LV <b id="levelText">1</b></span></div>
+        <div class="xp glass"><i id="xpBar"></i></div><button id="pauseBtn" class="icon-btn glass">Ⅱ</button>
+      </div>
+      <div id="bossBanner" class="boss-banner"><span>⚠</span><div><small>APEX PREDATOR</small><b id="bossName">GARDEN MANTIS</b></div><span>⚠</span></div>
+      <div id="waveReward" class="wave-reward"></div>
+    </div>
+
+    <div id="mobileControls" class="hidden" aria-hidden="true">
+      <div id="stickBase"><div id="stickKnob"></div></div>
+      <div class="action-cluster"><button id="repairBtn" class="action repair">REPAIR<br><small>12 🍞</small></button><button id="dashBtn" class="action dash">DASH</button><button id="biteBtn" class="action bite">BITE</button></div>
+    </div>
+  </div>
+  <script src="data.js"></script><script src="audio.js"></script><script src="ui.js"></script><script src="game.js"></script>
+</body>
+</html>

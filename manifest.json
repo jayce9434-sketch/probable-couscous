@@ -1,0 +1,9 @@
+{
+  "name":"BUGBREAK: Colony Siege",
+  "short_name":"BUGBREAK",
+  "start_url":"./index.html",
+  "display":"standalone",
+  "background_color":"#07110d",
+  "theme_color":"#0d1f17",
+  "description":"A fast bug survival and colony defense browser game."
+}
